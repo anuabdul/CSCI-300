@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Meal Selector</title>
+    <style>
+        body {
+            background: linear-gradient(to bottom, #8e44ad, #3498db);
+            color: white;
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+        }
+
+        header {
+            background-color: #000000;
+            padding: 30px;
+            text-align: center;
+        }
+
+        #firstPage {
+            padding: 50px;
+            text-align: center;
+        }
+
+        button {
+            background-color: #2ecc71;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #27ae60;
+        }
+
+        marquee {
+            font-size: 18px;
+            color: #f39c12;
+        }
+
+        .menu {
+            text-align: center;
+        }
+
+        .menu img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .ingredients {
+            display: none;
+            text-align: left;
+        }
+
+        .ingredients p {
+            margin: 10px 0;
+        }
+    </style>
+    <script>
+        function selectMeal(mealType) {
+            if (mealType === 'breakfast') {
+                document.getElementById('firstPage').style.display = 'none';
+                document.getElementById('breakfastPage').style.display = 'block';
+                document.getElementById('dinnerPage').style.display = 'none';
+            } else if (mealType === 'dinner') {
+                document.getElementById('firstPage').style.display = 'none';
+                document.getElementById('breakfastPage').style.display = 'none';
+                document.getElementById('dinnerPage').style.display = 'block';
+            } else if (mealType === 'reviews') {
+                window.location.href = 'reviews.html';
+            } else if (mealType === 'home') {
+                document.getElementById('firstPage').style.display = 'block';
+                document.getElementById('breakfastPage').style.display = 'none';
+                document.getElementById('dinnerPage').style.display = 'none';
+            } else if (mealType.startsWith('showBreakfastIngredients')) {
+                var index = mealType.slice(-1);
+                document.getElementById('breakfastIngredients' + index).style.display = 'block';
+            } else if (mealType.startsWith('showDinnerIngredients')) {
+                var index = mealType.slice(-1);
+                document.getElementById('dinnerIngredients' + index).style.display = 'block';
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header>
+        <h1>Group 1 Restaurant</h1>
+    </header>
+
+    <!-- Marquee Tag -->
+    <marquee behavior="scroll" direction="left">
+        Welcome to Group 1's CSCI 300 final project
+    </marquee>
+
+    <!-- First Page with Buttons -->
+    <div id="firstPage">
+        <h2>Choose a Meal</h2>
+        <button onclick="selectMeal('breakfast')">Explore Breakfast</button>
+        <button onclick="selectMeal('dinner')">Discover Dinner</button>
+        <button onclick="selectMeal('reviews')">Leave a Review</button>
+    </div>
+
+    <!-- Breakfast Page -->
+    <div id="breakfastPage" class="menu">
+        <h2>Breakfast Menu</h2>
+        <!-- Breakfast Option 1 -->
+        <img src="breakfast_option1.jpeg" alt="Breakfast Option 1" onclick="selectMeal('showBreakfastIngredients1')">
+        <div id="breakfastIngredients1" class="ingredients">
+            <h3>Scrambled Eggs with Avocado Toast</h3>
+            <p>Ingredients:</p>
+            <ul>
+                <li>Eggs</li>
+                <li>Avocado</li>
+                <li>Bread</li>
+                <li>Salt</li>
+                <li>Pepper</li>
+            </ul>
+        </div>
+
+        <!-- Breakfast Option 2 -->
+        <img src="breakfast_option2.jpeg" alt="Breakfast Option 2" onclick="selectMeal('showBreakfastIngredients2')">
+        <div id="breakfastIngredients2" class="ingredients">
+            <h3>Pancakes with Berries</h3>
+            <p>Ingredients:</p>
+            <ul>
+                <li>Pancake mix</li>
+                <li>Berries (e.g., strawberries, blueberries)</li>
+                <li>Syrup</li>
+            </ul>
+        </div>
+
+        <!-- Breakfast Option 3 -->
+        <img src="breakfast_option3.jpeg" alt="Breakfast Option 3" onclick="selectMeal('showBreakfastIngredients3')">
+        <div id="breakfastIngredients3" class="ingredients">
+            <h3>French Toast with Maple Syrup</h3>
+            <p>Ingredients:</p>
+            <ul>
+                <li>Bread</li>
+                <li>Eggs</li>
+                <li>Milk</li>
+                <li>Cinnamon</li>
+                <li>Maple Syrup</li>
+            </ul>
+        </div>
+
+        <!-- Breakfast Option 4 -->
+        <img src="breakfast_option4.jpeg" alt="Breakfast Option 4" onclick="selectMeal('showBreakfastIngredients4')">
+        <div id="breakfastIngredients4" class="ingredients">
+            <h3>Yogurt Parfait with Granola</h3>
+            <p>Ingredients:</p>
+            <ul>
+                <li>Yogurt</li>
+                <li>Granola</li>
+                <li>Berries</li>
+                <li>Honey</li>
+            </ul>
+        </div>
+
+        <!-- Breakfast Option 5 -->
+        <img src="breakfast_option5.jpeg" alt="Breakfast Option 5" onclick="selectMeal('showBreakfastIngredients5')">
+        <div id="breakfastIngredients5" class="ingredients">
+            <h3>Egg and Cheese Bagel</h3>
+            <p>Ingredients:</p>
+            <ul>
+                <li>Bagel</li>
+                <li>Egg</li>
+                <li>Cheese</li>
+                <li>Butter</li>
+            </ul>
+        </div>
+
+        <!-- Breakfast Option 6 -->
+        <img src="breakfast_option6.jpeg" alt="Breakfast Option 6" onclick="selectMeal('showBreakfastIngredients6')">
+        <div id="breakfastIngredients6" class="ingredients">
+            <h3>Smoothie Bowl</h3>
+            <p>Ingredients:</p>
+            <ul>
+                <li>Smoothie base</li>
+                <li>Fruits (e.g., banana, berries)</li>
+                <li>Granola</li>
+                <li>Coconut flakes</li>
+            </ul>
+        </div>
+
+        <!-- Breakfast Option 7 -->
+        <img src="breakfast_option7.jpeg" alt="Breakfast Option 7" onclick="selectMeal('showBreakfastIngredients7')">
+        <div id="breakfastIngredients7" class="ingredients">
+            <h3>Vegetarian Omelette</h3>
+            <p>Ingredients:</p>
+            <ul>
+                <li>Eggs</li>
+                <li>Vegetables (e.g., bell peppers, onions)</li>
+                <li>Cheese</li>
+                <li>Spinach</li>
+            </ul>
+        </div>
+
+        <button onclick="selectMeal('home')">Home</button>
+        <button onclick="selectMeal('first')">Back to First Page</button>
+    </div>
+
+    <!-- Dinner Page -->
+    <div id="dinnerPage" class="menu">
+        <h2>Dinner Menu</h2>
+        <!-- Dinner Option 1 -->
+        <img src="dinner_option1.jpeg" alt="Dinner Option 1" onclick="selectMeal('showDinnerIngredients1')">
+        <div id="dinnerIngredients1" class="ingredients">
+            <h3>Grilled Salmon with Roasted Vegetables</h3>
+            <p>Ingredients:</p>
+            <ul>
+                <li>Salmon</li>
+                <li>Vegetables (e.g., carrots, broccoli)</li>
+                <li>Olive Oil</li>
+                <li>Salt</li>
+                <li>Pepper</li>
+            </ul>
+        </div>
+
+        <!-- Dinner Option 2 -->
+        <img src="dinner_option2.jpeg" alt="Dinner Option 2" onclick="selectMeal('showDinnerIngredients2')">
+        <div id="dinnerIngredients2" class="ingredients">
+            <h3>Chicken Alfredo Pasta</h3>
+            <p>Ingredients:</p>
+            <ul>
+                <li>Chicken</li>
+                <li>Fettuccine pasta</li>
+                <li>Alfredo sauce</li>
+                <li>Garlic</li>
+                <li>Parmesan cheese</li>
+            </ul>
+        </div>
+
+        <!-- Dinner Option 3 -->
+        <img src="dinner_option3.jpeg" alt="Dinner Option 3" onclick="selectMeal('showDinnerIngredients3')">
+        <div id="dinnerIngredients3" class="ingredients">
+            <h3>Vegetarian Stir-Fry</h3>
+            <p>Ingredients:</p>
+            <ul>
+                <li>Tofu</li>
+                <li>Mixed vegetables</li>
+                <li>Soy sauce</li>
+                <li>Ginger</li>
+                <li>Garlic</li>
+            </ul>
+        </div>
+
+        <!-- Dinner Option 4 -->
+        <img src="dinner_option4.jpeg" alt="Dinner Option 4" onclick="selectMeal('showDinnerIngredients4')">
+        <div id="dinnerIngredients4" class="ingredients">
+            <h3>Spaghetti Bolognese</h3>
+            <p>Ingredients:</p>
+            <ul>
+                <li>Ground beef</li>
+                <li>Tomato sauce</li>
+                <li>Onions</li>
+                <li>Garlic</li>
+                <li>Spaghetti pasta</li>
+            </ul>
+        </div>
+
+        <!-- Dinner Option 5 -->
+        <img src="dinner_option5.jpeg" alt="Dinner Option 5" onclick="selectMeal('showDinnerIngredients5')">
+        <div id="dinnerIngredients5" class="ingredients">
+            <h3>Shrimp Scampi</h3>
+            <p>Ingredients:</p>
+            <ul>
+                <li>Shrimp</li>
+                <li>Garlic</li>
+                <li>Butter</li>
+                <li>Parsley</li>
+                <li>Lemon</li>
+            </ul>
+        </div>
+
+        <!-- Dinner Option 6 -->
+        <img src="dinner_option6.jpeg" alt="Dinner Option 6" onclick="selectMeal('showDinnerIngredients6')">
+        <div id="dinnerIngredients6" class="ingredients">
+            <h3>Beef Tacos</h3>
+            <p>Ingredients:</p>
+            <ul>
+                <li>Ground beef</li>
+                <li>Taco shells</li>
+                <li>Lettuce</li>
+                <li>Tomatoes</li>
+                <li>Cheese</li>
+            </ul>
+        </div>
+
+        <!-- Dinner Option 7 -->
+        <img src="dinner_option7.jpeg" alt="Dinner Option 7" onclick="selectMeal('showDinnerIngredients7')">
+        <div id="dinnerIngredients7" class="ingredients">
+            <h3>Mushroom Risotto</h3>
+            <p>Ingredients:</p>
+            <ul>
+                <li>Arborio rice</li>
+                <li>Mushrooms</li>
+                <li>Chicken broth</li>
+                <li>White wine</li>
+                <li>Parmesan cheese</li>
+            </ul>
+        </div>
+
+        <button onclick="selectMeal('home')">Home</button>
+        <button onclick="selectMeal('first')">Back to First Page</button>
+    </div>
+
+</body>
+
+</html>
